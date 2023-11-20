@@ -1,0 +1,84 @@
+[System]
+Name='intelligentflatagent'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=36
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='temp'
+Range=[0 50]
+NumMFs=3
+MF1='cold':'trimf',[-10 0 10]
+MF2='ideal':'trimf',[10 15 20]
+MF3='hot':'trimf',[20 35 50]
+
+[Input2]
+Name='lightlevel'
+Range=[0 10]
+NumMFs=4
+MF1='dark':'trimf',[0 2 3]
+MF2='dim':'trimf',[2 4 6]
+MF3='nutral':'trimf',[6 8 10]
+MF4='VB':'trimf',[8 9 10]
+
+[Input3]
+Name='daytime'
+Range=[0 24]
+NumMFs=3
+MF1='morning':'trimf',[0 4 10]
+MF2='afternoon':'trimf',[10 15 17]
+MF3='night':'trimf',[17 21 24]
+
+[Output1]
+Name='AC'
+Range=[0 3]
+NumMFs=4
+MF1='off':'trimf',[0 0.5 1]
+MF2='low':'trimf',[1 1.5 2]
+MF3='medium':'trimf',[1 2 2.5]
+MF4='high':'trimf',[2 2.5 3]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 2 1, 1 (1) : 1
+1 3 1, 1 (1) : 1
+1 4 1, 2 (1) : 1
+2 1 1, 2 (1) : 1
+2 2 1, 2 (1) : 1
+2 3 1, 2 (1) : 1
+2 4 1, 3 (1) : 1
+3 1 1, 3 (1) : 1
+3 2 1, 3 (1) : 1
+3 3 1, 4 (1) : 1
+3 4 1, 4 (1) : 1
+1 1 2, 1 (1) : 1
+2 2 2, 1 (1) : 1
+3 3 2, 1 (1) : 1
+1 4 2, 2 (1) : 1
+2 1 2, 2 (1) : 1
+3 2 2, 2 (1) : 1
+2 3 2, 2 (1) : 1
+2 4 2, 3 (1) : 1
+3 1 2, 3 (1) : 1
+3 2 2, 3 (1) : 1
+3 3 2, 4 (1) : 1
+3 4 2, 4 (1) : 1
+1 1 3, 1 (1) : 1
+1 2 3, 1 (1) : 1
+1 3 3, 1 (1) : 1
+1 4 3, 2 (1) : 1
+2 1 3, 2 (1) : 1
+2 2 3, 2 (1) : 1
+2 3 3, 3 (1) : 1
+2 4 3, 3 (1) : 1
+3 1 3, 3 (1) : 1
+3 2 3, 3 (1) : 1
+3 3 3, 4 (1) : 1
+3 4 3, 4 (1) : 1
